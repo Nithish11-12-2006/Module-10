@@ -21,37 +21,30 @@ To write a Python program to:
 6. Sort the list in descending order.
 7. Print the updated list.
 
-## 🧪 Program:
-
-```python
-q = []
-n = int(input())
-for i in range(n):
-    value = int(input())
-    q.append(value)
-q.pop(0)
-q.pop(0)
-q.sort(reverse=True)
-print(q)
+## 🧪 Program: 
 ```
+import queue  
+q = queue.Queue() 
+for i in range(5):
+    q.put(input())
 
+n =  q.qsize()  
+for i in range(n):  
+    x = q.get()  
+    for j in range(n-1):  
+        y = q.get()  
+        if x < y :  
+            q.put(y)  
+        else:  
+            q.put(x)  
+            x = y     
+    q.put(x)  
+while (q.empty() == False):   
+    print(q.queue[0], end = " ")    
+    q.get()
+```
 ### Output:
-
-**Input:**
-```
-5
-10
-40
-20
-60
-30
-```
-
-**Output:**
-```
-[60, 40, 30]
-```
+<img width="777" height="336" alt="516296705-d6090fe2-ed3b-4561-8ebd-17f20ea2047e" src="https://github.com/user-attachments/assets/4f9bb985-97f5-4338-9c97-300a334c555c" />
 
 ## Result:
-
-The program successfully removes the first two elements from the queue and displays the remaining values in descending order.
+Thus,the program is executed successfully
